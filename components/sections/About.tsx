@@ -13,8 +13,8 @@ export function About() {
 
     // Dados rápidos para os cards de status (Hardcoded pois são números/fatos universais)
     const stats = [
-        { icon: GraduationCap, label: "CS Student", value: "4th Sem" },
-        { icon: Cpu, label: "Experience", value: "3+ Years" },
+        { icon: GraduationCap, label: "CS Student", value: "1th Sem" },
+        { icon: Cpu, label: "Experience", value: "1+ Years" },
         { icon: Globe, label: "Location", value: "Brazil" },
     ];
 
@@ -105,7 +105,7 @@ export function About() {
 
                             <div>
                                 <span className="text-green-400">➜</span> <span className="text-cyan-400">~</span> <span className="text-zinc-500">$</span> current_role
-                                <div className="text-yellow-300 mt-1">"Full Stack Developer & MEI"</div>
+                                <div className="text-yellow-300 mt-1">"Full Stack Developer"</div>
                             </div>
 
                             <div>

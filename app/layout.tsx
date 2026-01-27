@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+// 1. MUDANÇA AQUI: Trocamos Inter/JetBrains por Space Grotesk/Space Mono
+import { Space_Grotesk, Space_Mono } from "next/font/google"; 
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
-const inter = Inter({
-  variable: "--font-inter",
+
+// 2. Configuração da Space Grotesk (Para títulos e textos)
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-sans", // Mantemos o nome da variável para não quebrar o CSS
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"], // Pesos variados
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+// 3. Configuração da Space Mono (Para tags e códigos)
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Isaac | Full Stack Developer",
-  description: "Portfolio of a Full Stack Developer specialized in modern web technologies.",
+  description: "Portfolio",
 };
 
 export default function RootLayout({
@@ -26,13 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      {/* 4. Aplicamos as variáveis no body */}
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-black`}>
         <LanguageProvider>
-          {/* Fundo Animado (Particles) */}
-          <AnimatedBackground />
-
-          {/* Main Content com Z-Index superior */}
-          <main className="relative z-10 w-full min-h-screen">
+          
+          <main style={{ position: "relative", zIndex: 10 }}>
             {children}
           </main>
         </LanguageProvider>

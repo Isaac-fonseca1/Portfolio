@@ -52,16 +52,16 @@ export const dictionary = {
             ]
         },
         
-        about: {
+       about: {
             title: "About",
             highlight: "Me",
-            p1_start: "I'm Isaac, a 21-year-old Computer Science Student and Full Stack Engineer with a passion for",
-            p1_highlight: "Engineering Operations",
-            p1_end: "and clean, scalable code.",
-            p2: "My journey involves experience both as an independent contractor (MEI) and in structured CLT roles, giving me a unique perspective on both agile delivery and enterprise stability.",
-            p3: "I don't just write code; I design systems that solve real-world problems, leveraging the power of modern automation and DevOps practices to deliver value faster.",
-            branding: "<CodeIsArt />",
-            contact: "Contact Me",
+            p1_start: "I'm Isaac, a 21-year-old Computer Engineering student and certified Systems Development Technician. I work as a Full Stack Engineer passionate about",
+            p1_highlight: "Software Architecture",
+            p1_end: "and high-performance solutions.",
+            p2: "My journey combines the solid foundation of technical training with the analytical mindset of engineering. I have practical experience in both corporate operations (ISP) and the dynamic independent market.",
+            p3: "I don't just write code; I design resilient ecosystems that bridge hardware, software, and automation to solve complex real-world problems.",
+            branding: "<EngineeringIsArt />",
+            contact: "Get in Touch",
         },
         footer: {
             built_by: "Built by",
@@ -147,13 +147,17 @@ export const dictionary = {
         about: {
             title: "Sobre",
             highlight: "Mim",
-            p1_start: "Sou Isaac, estudante de Ciência da Computação de 21 anos e Engenheiro Full Stack com paixão por",
-            p1_highlight: "Operações de Engenharia",
-            p1_end: "e código limpo e escalável.",
-            p2: "Minha jornada envolve experiência tanto como prestador de serviços independente (MEI) quanto em funções CLT estruturadas, me dando uma perspectiva única sobre entrega ágil e estabilidade empresarial.",
-            p3: "Não escrevo apenas código; projeto sistemas que resolvem problemas do mundo real, aproveitando o poder da automação moderna e práticas de DevOps para entregar valor mais rápido.",
-            branding: "<CodigoEhArte />",
-            contact: "Contato",
+          
+            p1_start: "Sou Isaac, 21 anos, estudante de Engenharia da Computação e Técnico em Desenvolvimento de Sistemas. Atuo como Engenheiro Full Stack com foco em",
+            p1_highlight: "Arquitetura de Software",
+            p1_end: "e soluções de alta performance.",
+            
+            p2: "Minha trajetória combina a base sólida de uma formação técnica com a visão analítica da engenharia. Tenho experiência prática tanto em operações corporativas (ISP) quanto no dinamismo do mercado independente.",
+            
+            p3: "Vou além do código: projeto ecossistemas resilientes que unem hardware, software e automação para resolver problemas complexos do mundo real.",
+            
+            branding: "<CodeIsArt />", 
+            contact: "Entrar em Contato",
         },
         workflow: {
             title: "Meu",
