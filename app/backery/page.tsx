@@ -20,13 +20,13 @@ import {
     TrendingUp,
     Users,
     Clock,
-    AlertTriangle,
+    
     RefreshCw,
-    MoreVertical,
+
     ArrowRight,
     Menu,
     X,
-    Wallet,
+   
     Bike
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
@@ -695,8 +695,8 @@ function DashboardView({ revenue, notifications, language, t, formatCurrency }: 
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
             <div>
-                <h1 className="text-2xl font-bold text-stone-100">{t.dashboard.title}</h1>
-                <p className="text-stone-400">{t.dashboard.subtitle}</p>
+                <h1 className="text-2xl font-bold text-stone-800 dark:text-stone-100">{t.dashboard.title}</h1>
+                <p className="text-stone-500 dark:text-stone-400">{t.dashboard.subtitle}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -705,7 +705,7 @@ function DashboardView({ revenue, notifications, language, t, formatCurrency }: 
                     value={formatCurrency(revenue)}
                     trend={t.dashboard.stats.trendUp}
                     icon={TrendingUp}
-                    color="bg-green-500"
+                    color="green"
                     subtitle={t.dashboard.stats.secure}
                 />
                 <StatCard
@@ -713,24 +713,23 @@ function DashboardView({ revenue, notifications, language, t, formatCurrency }: 
                     value="24"
                     trend="+4"
                     icon={ShoppingBag}
-                    color="bg-orange-500"
+                    color="orange"
                 />
                 <StatCard
                     title={t.dashboard.stats.avgTicket}
                     value={formatCurrency(32.50)}
                     trend={t.dashboard.stats.trendDown}
                     icon={Users}
-                    color="bg-blue-500"
+                    color="blue"
                 />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:h-96">
-                {/* Animated Charts */}
-                <div className="lg:col-span-2 bg-stone-900 p-6 rounded-2xl shadow-sm border border-stone-800 flex flex-col transition-colors">
+                <div className="lg:col-span-2 bg-white dark:bg-stone-900 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 flex flex-col transition-colors">
                     <div className="flex justify-between items-center mb-6">
-                        <h3 className="font-semibold text-stone-200">{t.dashboard.charts.title}</h3>
+                        <h3 className="font-semibold text-stone-700 dark:text-stone-200">{t.dashboard.charts.title}</h3>
                         <div className="flex gap-2">
-                            <span className="w-3 h-3 rounded-full bg-orange-600" />
+                            <span className="w-3 h-3 rounded-full bg-orange-500" />
                             <span className="text-xs text-stone-500">{t.dashboard.charts.today}</span>
                         </div>
                     </div>
@@ -741,37 +740,34 @@ function DashboardView({ revenue, notifications, language, t, formatCurrency }: 
                                     initial={{ height: 0 }}
                                     animate={{ height: `${h}%` }}
                                     transition={{ duration: 1.2, delay: i * 0.05, type: "spring" }}
-                                    className="w-full bg-orange-600/10 rounded-t-lg group-hover:bg-orange-600 transition-colors relative"
+                                    className="w-full bg-orange-100 dark:bg-stone-800 rounded-t-lg group-hover:bg-orange-500 transition-colors relative"
                                 >
-                                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-stone-800 text-stone-100 text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-stone-700">
-                                        {formatCurrency(h * 10)}
-                                    </div>
                                 </motion.div>
-                                <span className="text-[10px] text-stone-500 font-medium">{i + 8}h</span>
+                                <span className="text-[10px] text-stone-400 font-medium">{i + 8}h</span>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Live Activity Feed */}
-                <div className="bg-stone-900 p-6 rounded-2xl shadow-sm border border-stone-800 flex flex-col overflow-hidden transition-colors">
-                    <h3 className="font-semibold text-stone-200 mb-4">{t.dashboard.activity.title}</h3>
-                    <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-stone-800">
-                        {notifications.map((note, i) => (
+                <div className="bg-white dark:bg-stone-900 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 flex flex-col overflow-hidden transition-colors">
+                    <h3 className="font-semibold text-stone-700 dark:text-stone-200 mb-4">{t.dashboard.activity.title}</h3>
+                    <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-stone-200 dark:scrollbar-thumb-stone-700">
+                        {/* A CORREÇÃO ESTÁ AQUI: adicionei ": any" no parâmetro note */}
+                        {notifications.map((note: any, i: number) => (
                             <motion.div
                                 key={note.id}
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="flex items-start gap-3 p-3 rounded-xl bg-stone-800/50 border border-stone-800"
+                                className="flex items-start gap-3 p-3 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700"
                             >
                                 <div className={cn(
                                     "w-2 h-2 mt-1.5 rounded-full shrink-0",
-                                    note.type === 'info' ? 'bg-blue-500' : note.type === 'success' ? 'bg-green-500' : 'bg-red-500'
+                                    note.type === 'info' ? 'bg-blue-400' : note.type === 'success' ? 'bg-green-400' : 'bg-red-400'
                                 )} />
                                 <div>
-                                    <p className="text-xs sm:text-sm text-stone-300 leading-tight">{note.message[language as 'en' | 'pt']}</p>
-                                    <span className="text-[10px] text-stone-500">{note.time}</span>
+                                    <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-tight">{note.message[language]}</p>
+                                    <span className="text-[10px] text-stone-400">{note.time}</span>
                                 </div>
                             </motion.div>
                         ))}
