@@ -12,27 +12,29 @@ export function Workflow() {
     const icons = [PenTool, Code, Container, Rocket];
 
     return (
-        <Section id="workflow" className="py-24 relative">
-             {/* Fundo Decorativo */}
-            <div className="absolute right-0 top-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px] -z-10" />
+        <Section id="workflow" className="py-24 relative overflow-hidden">
+            
+            {/* Fundos Decorativos (Glows Espaciais) */}
+            <div className="absolute right-0 top-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute left-0 bottom-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             <div className="text-center mb-20">
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold mb-4"
+                    className="text-3xl md:text-5xl font-bold mb-4 text-white"
                 >
-                    {t.workflow.title} <span className="text-neon-cyan">{t.workflow.highlight}</span>
+                    {t.workflow.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">{t.workflow.highlight}</span>
                 </motion.h2>
-                <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+                <p className="text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">
                     {t.workflow.subtitle}
                 </p>
             </div>
 
-            <div className="relative max-w-4xl mx-auto">
-                {/* Linha Central Conectora (Vertical) */}
-                <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent -translate-x-1/2" />
+            <div className="relative max-w-5xl mx-auto px-4">
+                {/* Linha Central Conectora (Vertical) - Gradiente Roxo/Azul */}
+                <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-purple-500/30 to-transparent -translate-x-1/2" />
 
                 <div className="space-y-12 md:space-y-24">
                     {t.workflow.steps.map((step, index) => {
@@ -50,31 +52,37 @@ export function Workflow() {
                                     isEven ? "flex-row" : "flex-row md:flex-row-reverse"
                                 }`}
                             >
-                                {/* O Ícone Central (A "Joia" da Timeline) */}
-                                <div className="absolute left-0 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 border border-neon-cyan/50 shadow-[0_0_15px_rgba(6,182,212,0.3)] z-10">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-neon-cyan animate-pulse" />
+                                {/* O Ícone Central (Nó da Rede) */}
+                                <div className="absolute left-0 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-[#030014] border border-white/10 shadow-[0_0_20px_rgba(168,85,247,0.2)] z-10 group hover:scale-110 transition-transform duration-300">
+                                    {/* Círculo interno pulsante */}
+                                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-purple-500/50 transition-colors">
+                                        <div className="w-3 h-3 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_#a855f7]" />
+                                    </div>
                                 </div>
 
-                                {/* O Card de Conteúdo */}
-                                <div className="ml-12 md:ml-0 md:w-[45%]">
-                                    <div className="group relative p-6 bg-zinc-900/40 border border-white/5 rounded-2xl hover:bg-white/5 transition-all duration-300 hover:border-neon-cyan/30">
-                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                            <Icon size={40} />
+                                {/* O Card de Conteúdo (Glassmorphism) */}
+                                <div className="ml-24 md:ml-0 md:w-[45%]">
+                                    <div className="group relative p-8 bg-[#030014]/40 backdrop-blur-md border border-white/10 rounded-3xl hover:bg-[#030014]/60 transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-900/10 hover:-translate-y-1">
+                                        
+                                        {/* Ícone de Fundo Gigante (Marca d'água) */}
+                                        <div className="absolute top-4 right-4 text-white/5 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12">
+                                            <Icon size={80} />
                                         </div>
                                         
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <span className="text-neon-cyan font-mono text-xs font-bold tracking-widest uppercase bg-cyan-500/10 px-2 py-1 rounded">
-                                                Step 0{index + 1}
-                                            </span>
-                                            <Icon size={18} className="text-zinc-400 md:hidden" />
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <span className="text-purple-400 font-mono text-xs font-bold tracking-widest uppercase bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full">
+                                                    Step 0{index + 1}
+                                                </span>
+                                            </div>
+                                            
+                                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                                                {step.title}
+                                            </h3>
+                                            <p className="text-zinc-400 text-sm leading-relaxed">
+                                                {step.description}
+                                            </p>
                                         </div>
-                                        
-                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-zinc-400 text-sm leading-relaxed">
-                                            {step.description}
-                                        </p>
                                     </div>
                                 </div>
                                 

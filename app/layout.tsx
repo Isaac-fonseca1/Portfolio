@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-// 1. MUDANÇA AQUI: Trocamos Inter/JetBrains por Space Grotesk/Space Mono
-import { Space_Grotesk, Space_Mono } from "next/font/google"; 
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { WarpBackground } from "@/components/ui/WarpBackground";
 
-
-// 2. Configuração da Space Grotesk (Para títulos e textos)
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-sans", // Mantemos o nome da variável para não quebrar o CSS
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // Pesos variados
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-// 3. Configuração da Space Mono (Para tags e códigos)
 const spaceMono = Space_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -22,19 +20,22 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "Isaac | Full Stack Developer",
   description: "Portfolio",
-};
-
-export default function RootLayout({
+  
+};export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      {/* 4. Aplicamos as variáveis no body */}
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-black`}>
+      {/* Removemos o bg-black daqui para não cobrir o componente fixo, 
+          mas mantemos text-stone-200 para a fonte */}
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased text-stone-200`}>
         <LanguageProvider>
-          
+          <CustomCursor />
+          {/* O Background Animado já tem bg-black nele mesmo */}
+          <WarpBackground />
+
           <main style={{ position: "relative", zIndex: 10 }}>
             {children}
           </main>
