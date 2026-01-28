@@ -43,5 +43,16 @@ export const projects: Project[] = [
         githubUrl: "", // Se for privado, deixe vazio
         imageUrl: "/backery.jpeg", // Lembre de colocar a imagem na pasta public
         isCommercial: true // Freelance conta como comercial
-    }
+    },
+    {
+    id: "4",
+    title: "Clinical Therapy SaaS (Stealth)",
+    category: "Full Stack", 
+    description: "Plataforma de gestão clínica focada em intervenção comportamental baseada em dados. Destaque para segurança (LGPD), tracking longitudinal de pacientes e automação de relatórios complexos.",
+    stack: ["Laravel", "MySQL", "React & Tailwind + ShadCN", "Recharts", "PDF Generation"],
+    liveUrl: "/clinical-saas",
+    githubUrl: "",
+    imageUrl: "/healthtech-diagram.png", // Sugestão: Diagrama de fluxo de dados
+    isCommercial: true
+}
 ];

@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import {
     SiReact, SiTailwindcss, SiFramer, SiNextdotjs, SiTypescript, SiChakraui,
     SiPhp, SiLaravel, SiNodedotjs, SiPostgresql,
-    SiDocker, SiN8N, SiPython, SiLinux, SiGit, SiGithub, SiSpring, SiAmazonwebservices
+    SiDocker, SiN8N, SiPython, SiLinux, SiGit, SiGithub, SiSpring, SiAmazonwebservices, SiShadcnui
 } from "react-icons/si";
 import { LucideTerminal, LucideServer, LucideLayout } from "lucide-react";
 
@@ -28,6 +28,7 @@ export default function Skills() {
                 { icon: SiTailwindcss, name: "Tailwind" },
                 { icon: SiChakraui, name: "Chakra UI" },
                 { icon: SiFramer, name: "Motion" },
+                { icon: SiShadcnui, name: "Shadcn UI" },
             ],
             // As capabilities agora vêm do dicionário (array de strings)
             capabilities: t.skills.frontend.capabilities, 

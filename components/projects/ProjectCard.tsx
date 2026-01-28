@@ -114,8 +114,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-sm font-semibold text-zinc-300 hover:text-white transition-colors"
                         >
-                            <LucideGithub size={18} />
-                            {t.projects.code || "Code"}
+                           
                         </a>
                         <a 
                             href={project.liveUrl}
