@@ -16,10 +16,10 @@ export function Navbar() {
 
     const navLinks = [
         { name: t.navbar.home, href: "#hero" },
-        { name: t.navbar.skills, href: "#skills" },
-        { name: t.navbar.workflow, href: "#workflow" },
         { name: t.navbar.projects, href: "#projects" },
         { name: t.navbar.about, href: "#about" },
+            { name: t.navbar.skills, href: "#skills" },
+          { name: t.navbar.workflow, href: "#workflow" },
     ];
 
     useEffect(() => {

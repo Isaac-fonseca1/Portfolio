@@ -44,7 +44,7 @@ export const dictionary = {
             code: "Code",
             items: [
                 {
-                    title: "Site Tuxnet",
+                    title: "Tuxnet Website",
                     description: "Landing page for ISP with a modern design and responsive layout. It includes a history of the company and its services.",
                     category: "Full Stack"
                 },
