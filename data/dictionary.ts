@@ -57,6 +57,11 @@ export const dictionary = {
                     title: "Bakery ERP System",
                     description: "A custom ERP solution for a local bakery chain. Handles inventory tracking, daily sales reports, and supplier management, reducing food waste by 15%.",
                     category: "Full Stack"
+                },
+                {
+                    tittle: "Clinical Therapy SaaS",
+                    description: "A clinical therapy SaaS that helps therapists to manage their patients and their treatments. LGPD compliance, tracking longitudinal of patients and automating reports. ",
+                    category: "Full Stack"
                 }
             ]
         },
@@ -156,6 +161,11 @@ export const dictionary = {
                 {
                     title: "Sistema Panificadora",
                     description: "Solução de ERP sob medida para uma rede de panificadoras. Gerencia estoque, relatórios de vendas diários e fornecedores, reduzindo o desperdício de alimentos em 15%.",
+                    category: "Full Stack"
+                },
+                {
+                    title: "Saas de acompanhamento terapeutico",
+                    description: "Plataforma de gestão clínica focada em intervenção comportamental baseada em dados. Destaque para segurança (LGPD), tracking longitudinal de pacientes e automação de relatórios complexos.",
                     category: "Full Stack"
                 }
             ]
