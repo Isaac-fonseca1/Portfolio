@@ -20,12 +20,12 @@ export function About() {
     return (
         // 1. FUNDO TRANSPARENTE: Removi bg-zinc-900 para ver as estrelas
         <Section id="about" className="py-24 relative overflow-hidden">
-            
+
             {/* Glow Decorativo (Roxo/Azul para combinar com o tema) */}
             <div className="absolute left-0 bottom-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-                
+
                 {/* Lado Esquerdo: Texto e História */}
                 <div className="space-y-8">
                     <motion.div
@@ -36,7 +36,7 @@ export function About() {
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
                             {t.about.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">{t.about.highlight}</span>
                         </h2>
-                        
+
                         <div className="prose prose-invert prose-lg text-zinc-400 space-y-4 leading-relaxed">
                             <p>
                                 {t.about.p1_start} <span className="text-purple-300 font-semibold">{t.about.p1_highlight}</span> {t.about.p1_end}
@@ -62,10 +62,16 @@ export function About() {
                     </div>
 
                     <div className="flex flex-wrap gap-4 pt-4">
-                        <Button className="bg-purple-600 hover:bg-purple-700 text-white border-none" icon={<ArrowRight className="w-4 h-4" />}>
-                            {t.about.contact}
-                        </Button>
-                        
+                      
+                        <a href="mailto:isaacgfds@hotmail.com" className="inline-block">
+                            <Button
+                                className="bg-purple-600 hover:bg-purple-700 text-white border-none shadow-lg shadow-purple-900/20"
+                                icon={<ArrowRight className="w-4 h-4" />}
+                            >
+                                {t.about.contact}
+                            </Button>
+                        </a>
+
                         <a href="https://github.com/Isaac-fonseca1" target="_blank" className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 hover:text-white transition-all text-zinc-400">
                             <SiGithub size={20} />
                         </a>
@@ -77,9 +83,9 @@ export function About() {
 
                 {/* Lado Direito: O Ecossistema Flutuante (Satélites) */}
                 <div className="relative h-[500px] w-full flex items-center justify-center perspective-1000">
-                    
+
                     {/* Satélite 1: React (Orbita Cima Direita) */}
-                    <motion.div 
+                    <motion.div
                         animate={{ y: [-15, 15, -15], rotate: [0, 10, 0] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute top-10 right-10 z-20 p-4 bg-[#030014] rounded-2xl border border-blue-500/30 shadow-lg shadow-blue-500/20 backdrop-blur-xl"
@@ -88,7 +94,7 @@ export function About() {
                     </motion.div>
 
                     {/* Satélite 2: Laravel (Orbita Baixo Esquerda) */}
-                    <motion.div 
+                    <motion.div
                         animate={{ y: [20, -20, 20], rotate: [0, -10, 0] }}
                         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                         className="absolute bottom-20 left-4 z-20 p-4 bg-[#030014] rounded-2xl border border-red-500/30 shadow-lg shadow-red-500/20 backdrop-blur-xl"
@@ -97,7 +103,7 @@ export function About() {
                     </motion.div>
 
                     {/* Satélite 3: Docker (Fundo Esquerda) */}
-                    <motion.div 
+                    <motion.div
                         animate={{ x: [-10, 10, -10], y: [-10, 10, -10] }}
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                         className="absolute top-20 left-0 z-0 p-3 bg-[#030014]/50 rounded-xl border border-blue-600/30 opacity-60 backdrop-blur-sm"
@@ -127,9 +133,9 @@ export function About() {
                             {/* Corpo do Código */}
                             <div className="p-6 font-mono text-sm leading-relaxed text-zinc-300">
                                 <div className="flex mb-2">
-                                    <span className="text-purple-400 mr-2">const</span> 
-                                    <span className="text-yellow-400">Isaac</span> 
-                                    <span className="text-white mx-2">=</span> 
+                                    <span className="text-purple-400 mr-2">const</span>
+                                    <span className="text-yellow-400">Isaac</span>
+                                    <span className="text-white mx-2">=</span>
                                     <span className="text-white">{"{"}</span>
                                 </div>
                                 <div className="pl-4 mb-1">
