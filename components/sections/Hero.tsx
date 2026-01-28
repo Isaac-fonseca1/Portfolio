@@ -118,7 +118,7 @@ export function Hero() {
                             {t.hero.cta_primary} {/* View Work */}
                         </Button>
                         <Button variant="outline" icon={<Download className="w-4 h-4" />}>
-                            Download CV
+                            {t.hero.cta_secondary}
                         </Button>
                     </div>
 

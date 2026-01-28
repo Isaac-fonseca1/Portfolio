@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import {
     SiReact, SiTailwindcss, SiFramer, SiNextdotjs, SiTypescript, SiChakraui,
     SiPhp, SiLaravel, SiNodedotjs, SiPostgresql,
-    SiDocker, SiN8N, SiPython, SiLinux, SiGit, SiGithub
+    SiDocker, SiN8N, SiPython, SiLinux, SiGit, SiGithub, SiSpring, SiAmazonwebservices
 } from "react-icons/si";
 import { LucideTerminal, LucideServer, LucideLayout } from "lucide-react";
 
@@ -44,6 +44,8 @@ export default function Skills() {
                 { icon: SiLaravel, name: "Laravel" },
                 { icon: SiNodedotjs, name: "Node.js" },
                 { icon: SiPostgresql, name: "SQL" },
+                { icon: SiPython, name: "Python" },
+                { icon: SiSpring, name: "Java+Spring" },
             ],
             capabilities: t.skills.backend.capabilities,
             gradient: "from-violet-500/20 via-purple-500/20 to-transparent",
@@ -61,6 +63,7 @@ export default function Skills() {
                 { icon: SiGithub, name: "GitHub" },
                 { icon: SiN8N, name: "N8n" },
                 { icon: SiPython, name: "Python" },
+                { icon: SiAmazonwebservices, name: "AWS" },
             ],
             capabilities: t.skills.devops.capabilities,
             gradient: "from-emerald-500/20 via-green-500/20 to-transparent",
