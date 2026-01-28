@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Section } from "../layout/Section";
 import { ProjectCard } from "../projects/ProjectCard";
-import { projects as staticProjectsData } from "@/data/projects"; // Renomeamos para 'static'
+import { projects as staticProjectsData } from "@/data/projects";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
@@ -12,25 +12,27 @@ export function Projects() {
     const { t } = useLanguage();
     const [filter, setFilter] = useState("All");
 
-    // Aqui fazemos o MERGE: Dados estáticos + Tradução
-    // O index deve bater (O projeto 0 do array estático é o projeto 0 do dicionário)
-    const translatedProjects = staticProjectsData.map((project, index) => ({
-        ...project,
-        title: t.projects.items[index].title,
-        description: t.projects.items[index].description,
-        // Usamos a categoria traduzida para o Card, mas mantemos a categoria original (ID) para o filtro se quiser
-        displayCategory: t.projects.items[index].category 
-    }));
+    // --- CORREÇÃO DO ERRO AQUI ---
+    // Usamos ?. (Optional Chaining) e || (OU) para evitar o crash.
+    const translatedProjects = staticProjectsData.map((project, index) => {
+        // Tenta pegar o item traduzido com segurança
+        const translatedItem = t.projects.items?.[index];
 
-    // Categorias do filtro (Mantive em inglês pois são termos técnicos universais, 
-    // mas você pode traduzir se quiser criar um array de filtros no dictionary tbm)
+        return {
+            ...project,
+            // Se existir tradução, usa. Se não, usa o original do projects.ts
+            title: translatedItem?.title || project.title,
+            description: translatedItem?.description || project.description,
+            displayCategory: translatedItem?.category || project.category 
+        };
+    });
+
+    // Categorias do filtro
+    // Certifique-se que "Dashboard" (que usamos no MineOps) está aqui se quiser filtrar por ele
     const categories = ["All", "Full Stack", "Frontend", "Automation"];
 
     const filteredProjects = translatedProjects.filter(project => {
         if (filter === "All") return true;
-        // Importante: O filtro compara com a categoria "técnica" que está no projects.ts
-        // Se você mudou "Automation" para "Automação" no projects.ts, ajuste aqui.
-        // Assumindo que no projects.ts a categoria está em inglês ("Automation")
         return project.category === filter; 
     });
 

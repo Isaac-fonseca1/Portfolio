@@ -7,6 +7,7 @@ import { Workflow } from "@/components/sections/workflow";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background relative overflow-hidden">
@@ -15,7 +16,7 @@ export default function Home() {
 
       <Hero />
      
-      <Projects />
+      <Projects/>
 
       <About />
       

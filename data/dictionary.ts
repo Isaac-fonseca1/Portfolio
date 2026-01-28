@@ -47,12 +47,20 @@ export const dictionary = {
                     title: "Site Tuxnet",
                     description: "Landing page for ISP with a modern design and responsive layout. It includes a history of the company and its services.",
                     category: "Full Stack"
+                },
+                {
+                    title: "MineOps Manager",
+                    description: "Real-time server monitoring dashboard simulating a Linux environment. Features live console logs, resource usage tracking (CPU/RAM), and player management.",
+                    category: "Automation"
+                },
+                {
+                    title: "Bakery ERP System",
+                    description: "A custom ERP solution for a local bakery chain. Handles inventory tracking, daily sales reports, and supplier management, reducing food waste by 15%.",
+                    category: "Full Stack"
                 }
-               
             ]
         },
-        
-       about: {
+        about: {
             title: "About",
             highlight: "Me",
             p1_start: "I'm Isaac, a 21-year-old Computer Engineering student and certified Systems Development Technician. I work as a Full Stack Engineer passionate about",
@@ -134,28 +142,32 @@ export const dictionary = {
             subtitle: "Uma seleção de sistemas complexos e soluções escaláveis que projetei.",
             demo: "Demo",
             code: "Código",
-            // VERSÃO EM PORTUGUÊS DOS PROJETOS
             items: [
                 {
                     title: "Site Tuxnet",
                     description: "Landing page para ISP visualmente pensado para divulgar serviços de internet, TV e telefone. Além de contar a historia da empresa e seus serviços.",
                     category: "Full Stack"
+                },
+                {
+                    title: "MineOps Manager",
+                    description: "Dashboard de monitoramento em tempo real simulando ambiente Linux. Conta com logs de console ao vivo, rastreamento de recursos (CPU/RAM) e gestão de jogadores.",
+                    category: "Automation"
+                },
+                {
+                    title: "Sistema Panificadora",
+                    description: "Solução de ERP sob medida para uma rede de panificadoras. Gerencia estoque, relatórios de vendas diários e fornecedores, reduzindo o desperdício de alimentos em 15%.",
+                    category: "Full Stack"
                 }
-              
             ]
         },
         about: {
             title: "Sobre",
             highlight: "Mim",
-          
             p1_start: "Sou Isaac, 21 anos, estudante de Engenharia da Computação e Técnico em Desenvolvimento de Sistemas. Atuo como Engenheiro Full Stack com foco em",
             p1_highlight: "Arquitetura de Software",
             p1_end: "e soluções de alta performance.",
-            
             p2: "Minha trajetória combina a base sólida de uma formação técnica com a visão analítica da engenharia. Tenho experiência prática tanto em operações corporativas (ISP) quanto no dinamismo do mercado independente.",
-            
             p3: "Vou além do código: projeto ecossistemas resilientes que unem hardware, software e automação para resolver problemas complexos do mundo real.",
-            
             branding: "<CodeIsArt />", 
             contact: "Entrar em Contato",
         },
