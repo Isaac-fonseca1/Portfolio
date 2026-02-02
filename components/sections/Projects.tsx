@@ -23,9 +23,8 @@ export function Projects() {
         };
     });
 
-    // Categorias do filtro (Ajustadas para combinar com seus projetos reais)
-    // Se "Dashboard" ou "HealthTech" forem importantes, adicione aqui
-    const categories = ["All", "Full Stack", "Frontend", "HealthTech", "Architecture"];
+  
+    const categories = ["All", "Full Stack", "Frontend", "Architecture"];
 
     const filteredProjects = translatedProjects.filter(project => {
         if (filter === "All") return true;

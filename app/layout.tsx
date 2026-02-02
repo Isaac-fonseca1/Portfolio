@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { CustomCursor } from "@/components/ui/CustomCursor";
+import { WarpCursor } from "@/components/ui/CustomCursor";
 import { WarpBackground } from "@/components/ui/WarpBackground";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
           mas mantemos text-stone-200 para a fonte */}
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased text-stone-200`}>
         <LanguageProvider>
-          <CustomCursor />
+          <WarpCursor/>
           {/* O Background Animado já tem bg-black nele mesmo */}
           <WarpBackground />
 
