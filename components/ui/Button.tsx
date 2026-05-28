@@ -1,54 +1,74 @@
 "use client";
 
-import * as React from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
+import { forwardRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: "primary" | "outline" | "ghost";
-    size?: "sm" | "md" | "lg";
-    isLoading?: boolean;
-    icon?: React.ReactNode;
+type Variant = "primary" | "secondary" | "ghost";
+type Size = "md" | "lg";
+
+interface CommonProps {
+  variant?: Variant;
+  size?: Size;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant = "primary", size = "md", isLoading, icon, children, ...props }, ref) => {
-        const baseStyles =
-            "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+const base =
+  "inline-flex items-center justify-center gap-2 font-medium tracking-tight transition-[transform,background-color,color,border-color,box-shadow] duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none select-none active:translate-y-[1px]";
 
-        const variants = {
-            primary:
-                "bg-neon-cyan/90 text-black hover:bg-neon-cyan shadow-[0_0_15px_rgba(0,243,255,0.3)] hover:shadow-[0_0_25px_rgba(0,243,255,0.5)] border border-transparent",
-            outline:
-                "border border-white/20 hover:border-neon-cyan/50 text-foreground hover:text-neon-cyan bg-transparent hover:bg-white/5",
-            ghost: "text-foreground/70 hover:text-foreground hover:bg-white/5",
-        };
+const sizes: Record<Size, string> = {
+  md: "h-11 px-5 text-[15px]",
+  lg: "h-14 px-7 text-base",
+};
 
-        const sizes = {
-            sm: "h-8 px-4 text-xs",
-            md: "h-10 px-6 py-2 text-sm",
-            lg: "h-12 px-8 text-base",
-        };
+const variants: Record<Variant, string> = {
+  primary:
+    "relative bg-accent text-white hover:bg-accent-hover shadow-[0_1px_0_0_rgba(0,0,0,0.04),0_10px_32px_-10px_rgba(0,82,255,0.55)] hover:shadow-[0_1px_0_0_rgba(0,0,0,0.04),0_18px_40px_-12px_rgba(0,82,255,0.7)] btn-pulse-glow",
+  secondary:
+    "bg-transparent text-fg border border-border-strong hover:border-fg hover:bg-fg/[0.03]",
+  ghost:
+    "bg-transparent text-fg-muted hover:text-fg hover:bg-fg/[0.04]",
+};
 
-        return (
-            <motion.button
-                ref={ref}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={cn(baseStyles, variants[variant], sizes[size], className)}
-                disabled={isLoading}
-                // Cast props to HTMLMotionProps to satisfy framer-motion types while keeping precise React attributes
-                {...props as HTMLMotionProps<"button">}
-            >
-                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {!isLoading && icon && <span className="mr-2">{icon}</span>}
-                {children}
-            </motion.button>
-        );
-    }
+type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { variant = "primary", size = "md", iconLeft, iconRight, className, children, ...rest },
+  ref
+) {
+  return (
+    <button
+      ref={ref}
+      className={cn(base, sizes[size], variants[variant], className)}
+      {...rest}
+    >
+      {iconLeft}
+      <span>{children}</span>
+      {iconRight}
+    </button>
+  );
+});
+
+type LinkButtonProps = CommonProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+
+export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
+  function LinkButton(
+    { variant = "primary", size = "md", iconLeft, iconRight, className, children, ...rest },
+    ref
+  ) {
+    return (
+      <a
+        ref={ref}
+        className={cn(base, sizes[size], variants[variant], className)}
+        {...rest}
+      >
+        {iconLeft}
+        <span>{children}</span>
+        {iconRight}
+      </a>
+    );
+  }
 );
-Button.displayName = "Button";
-
-export { Button };
-

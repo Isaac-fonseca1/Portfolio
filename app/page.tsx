@@ -1,57 +1,35 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-
-// Seus componentes
-import { Navbar } from "@/components/layout/Navbar";
-import { Hero } from "@/components/sections/Hero";
-import { Projects } from "@/components/sections/Projects";
-import { About } from "@/components/sections/About";       
-import SkillsFramer from "@/components/sections/Skills"; 
-import { Workflow } from "@/components/sections/workflow"; 
+import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
-import { Preloader } from "@/components/ui/preloader";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { Hero } from "@/components/sections/Hero";
+import { Stats } from "@/components/sections/Stats";
+import { TechMarquee } from "@/components/sections/TechMarquee";
+import { Services } from "@/components/sections/Services";
+import { Pain } from "@/components/sections/Pain";
+import { Cases } from "@/components/sections/Cases";
+import { About } from "@/components/sections/About";
+import { Method } from "@/components/sections/Method";
+import { Stack } from "@/components/sections/Stack";
+import { CTA } from "@/components/sections/CTA";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simula o tempo de carregamento (2.5 segundos)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1800);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      {/* O AnimatePresence garante a animação de saída (explosão) do Preloader */}
-      <AnimatePresence mode="wait">
-        {isLoading && <Preloader />}
-      </AnimatePresence>
-
-      {/* O conteúdo só aparece quando o loading termina */}
-      {!isLoading && (
-        <main className="min-h-screen relative overflow-hidden">
-          <Navbar />
-          
-          <Hero />
-          
-          <Projects/>
-
-          <About />
-          
-          <SkillsFramer />
-          
-          <Workflow />
-          
-          <Footer />
-          <ScrollToTop />
-        </main>
-      )}
+      <ScrollProgress />
+      <Nav />
+      <main className="bg-bg relative">
+        <Hero />
+        <Stats />
+        <TechMarquee />
+        <Services />
+        <Pain />
+        <Cases />
+        <About />
+        <Method />
+        <Stack />
+        <CTA />
+      </main>
+      <Footer />
     </>
   );
 }

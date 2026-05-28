@@ -1,44 +1,81 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { WarpCursor } from "@/components/ui/CustomCursor";
-import { WarpBackground } from "@/components/ui/WarpBackground";
+import { Spotlight } from "@/components/ui/Spotlight";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Isaac | Full Stack Developer",
-  description: "Portfolio",
-  
-};export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      {/* Removemos o bg-black daqui para não cobrir o componente fixo, 
-          mas mantemos text-stone-200 para a fonte */}
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased text-stone-200`}>
-        <LanguageProvider>
-          <WarpCursor/>
-          {/* O Background Animado já tem bg-black nele mesmo */}
-          <WarpBackground />
+const siteUrl = "https://isaacfonseca.dev";
 
-          <main style={{ position: "relative", zIndex: 10 }}>
-            {children}
-          </main>
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Isaac Fonseca — Engenheiro de software que constrói operação",
+    template: "%s · Isaac Fonseca",
+  },
+  description:
+    "Construo SaaS internos, automações e integrações para tirar empresas da planilha. Cases em produção em ISP, saúde e operações multifiliais.",
+  keywords: [
+    "desenvolvedor full-stack",
+    "saas sob medida",
+    "automação n8n",
+    "integração meta ads",
+    "integração google ads",
+    "sistemas internos",
+    "freelancer software brasil",
+  ],
+  authors: [{ name: "Isaac Fonseca" }],
+  creator: "Isaac Fonseca",
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteUrl,
+    siteName: "Isaac Fonseca",
+    title: "Isaac Fonseca — Engenheiro de software que constrói operação",
+    description:
+      "SaaS internos, automações e integrações sob medida. Tire sua operação da planilha.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Isaac Fonseca — Engenheiro de software que constrói operação",
+    description:
+      "SaaS internos, automações e integrações sob medida. Tire sua operação da planilha.",
+  },
+  robots: { index: true, follow: true },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
+      >
+        <LanguageProvider>
+          <Spotlight />
+          {children}
         </LanguageProvider>
       </body>
     </html>
