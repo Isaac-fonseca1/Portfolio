@@ -23,7 +23,7 @@ export const dictionary = {
       badge: {
         label: "Em produção desde",
         year: "2023",
-        note: "Software meu operando em telecom regional, clínica hospitalar e governança de ativos.",
+        note: "Software meu operando em telecom regional, clínica especializada e governança de ativos.",
       },
     },
     stats: {
@@ -32,7 +32,7 @@ export const dictionary = {
       items: [
         { value: "11", label: "cidades atendidas pelo provedor que tem o site que eu construí" },
         { value: "3", label: "anos costurando sistema, integração e dado em produção" },
-        { value: "84", label: "testes automatizados no SaaS de gestão clínica" },
+        { value: "4", label: "sistemas operando entre telecom, saúde, marketing e governança" },
         { value: "3", label: "APIs externas unificadas no dashboard de tráfego pago" },
       ],
     },
@@ -155,6 +155,7 @@ export const dictionary = {
         status: "Status",
         live: "Acessar",
         repo: "Repositório",
+        caseStudy: "Ver no LinkedIn",
         private: "Repositório privado",
         statusProduction: "Em produção",
         statusDevelopment: "Em desenvolvimento",
@@ -231,7 +232,7 @@ export const dictionary = {
       badge: {
         label: "Shipping software since",
         year: "2023",
-        note: "Software I built running across a regional ISP, a hospital clinic, and asset governance.",
+        note: "Software I built running across a regional ISP, a specialized clinic, and asset governance.",
       },
     },
     stats: {
@@ -240,7 +241,7 @@ export const dictionary = {
       items: [
         { value: "11", label: "cities served by the ISP whose storefront I built" },
         { value: "3", label: "years stitching systems, integrations, and data in production" },
-        { value: "84", label: "automated tests on the clinical-management SaaS" },
+        { value: "4", label: "systems live across telecom, healthcare, marketing, and governance" },
         { value: "3", label: "external APIs unified into a single paid-traffic dashboard" },
       ],
     },
@@ -363,6 +364,7 @@ export const dictionary = {
         status: "Status",
         live: "Visit",
         repo: "Repository",
+        caseStudy: "See on LinkedIn",
         private: "Private repo",
         statusProduction: "In production",
         statusDevelopment: "In development",

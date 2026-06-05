@@ -22,6 +22,8 @@ export interface CaseStudy {
   stack: string[];
   liveUrl?: string;
   repoUrl?: string;
+  /** Link para post/case externo (ex.: LinkedIn com prints). */
+  caseUrl?: string;
   /** Marca cases com briefing ainda incompleto — vão renderizar com aviso. */
   draft?: boolean;
   /** Cases featured aparecem em formato editorial grande. Os demais como cards compactos. */
@@ -99,7 +101,8 @@ export const cases: CaseStudy[] = [
       en: "Process standardized across branches, zero asset lost on offboarding. A LinkedIn post telling the story went viral and triggered a direct inbound from a Brazilian ITAM SaaS founder.",
     },
     stack: ["Next.js", "TypeScript", "Tailwind", "Node.js", "PostgreSQL", "Prisma"],
-    repoUrl: "https://github.com/isaac-fonseca1",
+    caseUrl:
+      "https://www.linkedin.com/posts/isaac-fonseca-17a785223_engenhariadesoftware-gestaodeativos-saas-activity-7459667799653638144-HoJZ",
     mockup: {
       kind: "dashboard",
       preview: {
@@ -114,50 +117,7 @@ export const cases: CaseStudy[] = [
   },
 
   // ---------------------------------------------------------------------------
-  // 2. ROUNDLOG — SaaS clínica hospitalar com IA
-  // ---------------------------------------------------------------------------
-  {
-    id: "roundlog",
-    title: "RoundLog",
-    year: 2026,
-    status: "development",
-    featured: true,
-    accent: "#0052FF",
-    domain: { pt: "Saúde · IA aplicada", en: "Healthcare · Applied AI" },
-    summary: {
-      pt: "Médico grava áudio. IA estrutura. Enfermagem executa. Família acompanha.",
-      en: "Doctor records audio. AI structures. Nursing executes. Family follows along.",
-    },
-    problem: {
-      pt: "Visita médica hospitalar gera horas de transcrição manual. Conduta, prescrição e alerta ficam em prontuário que ninguém lê. Enfermagem perde pendências. Família liga toda hora porque não tem visibilidade.",
-      en: "Hospital rounds generate hours of manual transcription. Orders, prescriptions, and alerts end up in records no one reads. Nurses miss tasks. Families call constantly because they have no visibility.",
-    },
-    solution: {
-      pt: "Pipeline áudio → IA Gemini → JSON estruturado em condutas, pendências, alertas e prescrições. Web para gestão, PWA beira-leito para enfermagem, portal sem login para família (acesso por token assinado). 43 endpoints, 84 testes automatizados, refresh token em cookie HttpOnly, push notifications via VAPID.",
-      en: "Pipeline: audio → Gemini AI → structured JSON of orders, tasks, alerts, and prescriptions. Management web app, bedside PWA for nurses, login-less portal for family (signed-token access). 43 endpoints, 84 automated tests, HttpOnly refresh-token cookies, VAPID push.",
-    },
-    result: {
-      pt: "Reduz minutos de digitação por visita a zero e dá rastreabilidade longitudinal por paciente. Projeto acadêmico em desenvolvimento ativo — base técnica robusta o suficiente pra entrar em piloto hospitalar.",
-      en: "Cuts per-visit typing minutes to zero and gives longitudinal patient traceability. Academic project under active development — technical base solid enough to enter a hospital pilot.",
-    },
-    stack: ["Fastify", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Gemini", "Next.js", "PWA"],
-    repoUrl: "https://github.com/isaac-fonseca1",
-    mockup: {
-      kind: "device",
-      preview: {
-        heading: "Quarto 412",
-        items: [
-          { label: "Coleta lab. 08h", meta: "Pendente" },
-          { label: "Dipirona 1g IV", meta: "Prescrito" },
-          { label: "Sinais 12h", meta: "Concluído" },
-          { label: "Alta médica", meta: "Hoje" },
-        ],
-      },
-    },
-  },
-
-  // ---------------------------------------------------------------------------
-  // 3. TUXNET — LANDING DE VENDAS ISP, BAHIA (em produção desde 2025)
+  // 2. TUXNET — LANDING DE VENDAS ISP, BAHIA (em produção desde 2025)
   // ---------------------------------------------------------------------------
   {
     id: "tuxnet",
@@ -238,6 +198,8 @@ export const cases: CaseStudy[] = [
       "Claude",
       "GPT",
     ],
+    caseUrl:
+      "https://www.linkedin.com/posts/isaac-fonseca-17a785223_react-typescript-googlecloud-activity-7463973946871263232-xZfb",
     mockup: {
       kind: "dashboard",
       preview: {

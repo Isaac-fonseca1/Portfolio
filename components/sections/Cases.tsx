@@ -135,30 +135,40 @@ function FeaturedCase({ c, index }: { c: CaseStudy; index: number }) {
             ))}
           </div>
 
-          <div className="mt-8 flex items-center gap-6 text-sm">
-            {c.liveUrl && (
-              <a
-                href={c.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 link-underline text-fg"
-              >
-                {t.cases.labels.live} <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            )}
-            {c.repoUrl ? (
-              <a
-                href={c.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 link-underline text-fg-muted"
-              >
-                {t.cases.labels.repo} <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            ) : (
-              <span className="text-fg-subtle">{t.cases.labels.private}</span>
-            )}
-          </div>
+          {(c.liveUrl || c.caseUrl || c.repoUrl) && (
+            <div className="mt-8 flex items-center gap-6 text-sm">
+              {c.liveUrl && (
+                <a
+                  href={c.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 link-underline text-fg"
+                >
+                  {t.cases.labels.live} <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              )}
+              {c.caseUrl && (
+                <a
+                  href={c.caseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 link-underline text-fg-muted"
+                >
+                  {t.cases.labels.caseStudy} <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              )}
+              {c.repoUrl && (
+                <a
+                  href={c.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 link-underline text-fg-muted"
+                >
+                  {t.cases.labels.repo} <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </motion.article>
